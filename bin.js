@@ -68,30 +68,6 @@ async function main() {
 							value: dir
 						};
 					})
-				},
-				{
-					type: 'toggle',
-					name: 'typescript',
-					message: 'Use TypeScript?',
-					initial: false,
-					active: 'Yes',
-					inactive: 'No'
-				},
-				{
-					type: 'toggle',
-					name: 'eslint',
-					message: 'Add ESLint for code linting?',
-					initial: false,
-					active: 'Yes',
-					inactive: 'No'
-				},
-				{
-					type: 'toggle',
-					name: 'prettier',
-					message: 'Add Prettier for code formatting?',
-					initial: false,
-					active: 'Yes',
-					inactive: 'No'
 				}
 			],
 			{
@@ -103,6 +79,10 @@ async function main() {
 	);
 
 	options.name = path.basename(path.resolve(cwd));
+	options.typescript = true;
+	options.eslint  = true;
+	options.prettier = true;
+	options.playwright = false;
 
 	await create(cwd, options);
 
